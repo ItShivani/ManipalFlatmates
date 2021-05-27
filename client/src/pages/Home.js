@@ -9,7 +9,7 @@ function Home() {
     const {
     loading,
     data : {getPosts:posts}
-  } = useQuery(FETCH_POSTS_QUERY);
+  } = useQuery(getPosts_QUERY);
   if(posts){
     console.log(posts);
   }
@@ -17,7 +17,7 @@ function Home() {
     return (
      <Grid columns={3}>
       <Grid.Row className="page-title">
-        <h1>Recent Posts</h1>
+        <h1>All Posts</h1>
       </Grid.Row>
       <Grid.Row>
         {loading ? (
@@ -35,7 +35,7 @@ function Home() {
   );
 }
 
-const FETCH_POSTS_QUERY = gql`
+const getPosts_QUERY = gql`
   {
     getPosts {
       id
