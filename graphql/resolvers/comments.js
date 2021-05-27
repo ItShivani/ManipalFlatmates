@@ -20,7 +20,7 @@ module.exports = {
 				post.comments.unshift({
 					body,
 					username,
-					createComment: new Date().toISOString()
+					createdAt: new Date().toISOString()
 				})
 				await post.save();
 				return post;
