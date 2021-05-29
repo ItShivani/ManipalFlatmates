@@ -12,6 +12,9 @@ const HeaderEx = () => (
     <Header as='h2' floated='left'>
       Manipal Flatmates
     </Header>
+    <Header as='h3' floated='right'>
+    	Find your flatmate today!
+    </Header>
   </Segment>
 )
 

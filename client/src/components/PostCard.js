@@ -31,16 +31,18 @@ function PostCard({
         <Button as="div" labelPosition="right" onClick={likePost}>
           <Button color="teal" basic>
             <Icon name="heart" />
+      		Likes
           </Button>
-          <Label basic color="teal" pointing="left">
+          <Label basic color="teal">
             {likeCount}
           </Label>
         </Button>
         <Button as="div" labelPosition="right" onClick={commentOnPost}>
-          <Button color="blue" basic>
+          <Button color="teal" basic>
             <Icon name="comments" />
+            Comments
           </Button>
-          <Label basic color="blue" pointing="left">
+          <Label basic color="teal">
             {commentCount}
           </Label>
         </Button>
