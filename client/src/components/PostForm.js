@@ -7,7 +7,7 @@ import { useForm } from '../util/hooks';
 import { getPosts_QUERY } from '../util/graphql';
 
 function PostForm() {
-  const { values, onChange, onSubmit } = useForm(createPostCallback, {
+  const { onChange, onSubmit, values } = useForm(createPostCallback, {
     body: ''
   });
 
@@ -17,8 +17,11 @@ function PostForm() {
       const data = proxy.readQuery({
         query: getPosts_QUERY
       });
-      data.getPosts = [result.data.createPost, ...data.getPosts];
-      proxy.writeQuery({ query: getPosts_QUERY, data });
+       data.getPosts = [result.data.createPost, ...data.getPosts];
+      //data.getPosts = data.getPosts.unshift(result.data.createPost)
+      proxy.writeQuery({ query: getPosts_QUERY, data:{
+      	getPosts:[result.data.createPost,...data.getPosts]
+      } });
       values.body = '';
     }
   });
@@ -78,5 +81,6 @@ const CREATE_POST_MUTATION = gql`
     }
   }
 `;
+
 
 export default PostForm;
