@@ -7,11 +7,11 @@
   function LikeButton({user, post:{id,likeCount,likes}})
   {
   	const [liked,setLiked] = useState(false);
-	useEffect(()=>{
-	if(user && likes.find(like=> like.username === user.username)){
-		setLiked(true)
-	} else setLiked(false)
-},[user,likes]);
+  useEffect(() => {
+    if (user && likes.find((like) => like.username === user.username)) {
+      setLiked(true);
+    } else setLiked(false);
+  }, [user, likes]);
 
 const [likePost] = useMutation(LikePost_Mutation,{
 	variables:{postId:id}
@@ -35,8 +35,9 @@ const likeButton = user ? (
       		Likes
           </Button>
 
-	)
-     return (<Button as="div" labelPosition="right" onClick={likePost}>
+	);
+     return (
+     	<Button as="div" labelPosition="right" onClick={likePost}>
      		{likeButton}
           <Label basic color="teal">
             {likeCount}
@@ -56,6 +57,6 @@ const LikePost_Mutation = gql`
 			likeCount 
 		}
 	}
-`
+`;
 
 export default LikeButton;
