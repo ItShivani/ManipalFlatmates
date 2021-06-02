@@ -15,7 +15,7 @@ function App() {
   return (
       <AuthProvider>
         <Router> 
-          <Container>
+          <Container className="bg">
             <HeaderEx/>
             <MenuTab/>
             <Route exact path='/' component={Home}/>
