@@ -4,22 +4,27 @@ import {useMutation} from '@apollo/react-hooks'
 import {Button,Confirm,Icon} from 'semantic-ui-react'
 import {getPosts_QUERY} from '../util/graphql'
 
-function DeleteButton({postId,callback}){
+function DeleteButton({postId,commentId,callback}){
 		const [confirm,setConfirm] = useState(false);
-		const [deletePost] = useMutation(Delete_Mutation,{
+		const mutation = commentId?DeleteComment_Mutation : Delete_Mutation
+		const [deletePostOrComment] = useMutation(mutation,{
 			update(proxy){
 				setConfirm(false);
-				const data = proxy.readQuery({
+				if(!commentId){
+					const data = proxy.readQuery({
 					query:getPosts_QUERY
 				});
 				data.getPosts = data.getPosts.filter((p)=> p.id!=postId);
 				proxy.writeQuery({query: getPosts_QUERY,data});
+				}
 				if(callback) callback();
 			},
 			variables:{
-				postId
+				postId,
+				commentId
 			}
 		});
+
 	return(
 		<>
 		<Button as="div" onClick={()=> setConfirm(true)}>
@@ -28,7 +33,7 @@ function DeleteButton({postId,callback}){
            <Confirm 
            	open={confirm}
            	onCancel={()=>setConfirm(false)} 
-           	onConfirm={deletePost}
+           	onConfirm={deletePostOrComment}
            	/>
          </>
 		)
@@ -38,6 +43,21 @@ const Delete_Mutation = gql`
 	mutation deletePost($postId:ID!){
 		deletePost(postId:$postId)
 	}
-`
+`;
+
+const DeleteComment_Mutation = gql`
+	mutation deleteComment($postId:ID!,$commentId:ID!){
+		deleteComment(postId:$postId,commentId:$commentId){
+			id 
+			comments{
+				id 
+				username 
+				createdAt 
+				body
+			}
+			commentCount
+		}
+	}
+`;
 
 export default DeleteButton;
