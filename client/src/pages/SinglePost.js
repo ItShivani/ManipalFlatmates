@@ -11,25 +11,22 @@ import {Button,Card,Grid,Image,Icon,Label} from 'semantic-ui-react'
 function SinglePost(props){
 	const postId = props.match.params.postId;
 	const {user} = useContext(AuthContext);
-	const {loading,data:{getPost},error} = useQuery(getPost_QUERY,{
+	const {loading,data:{getPost:post}={},error} = useQuery(getPost_QUERY,{
 		variables: {
 			postId 
 		}
 	});
-  if(error) {
-    console.log(error);
-    return "error"; // blocks rendering
-  }
 
-	function deletePostCallback(){
-		props.history.push('/')
-	}
+
+function deletePostCallback() {
+	props.history.push('/');
+}
 
 	let postMarkup;
-	if(!getPost){
+	if(!post){
 		postMarkup = <h3> Loading .. </h3>
 	}else{
-		const {id, body, createdAt,username,comments,likes,likeCount,commentCount} = getPost;
+		const {id, body, createdAt,username,comments,likes,likeCount,commentCount} = post;
 		postMarkup = (
 		<Grid>
 			<Grid.Row>
