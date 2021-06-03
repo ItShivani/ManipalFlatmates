@@ -8,6 +8,7 @@ Link to deployed application : [ManipalFlatmates](https://vibrant-kepler-991faf.
 **Functionalities added:** 
 * Register new user with password encryption 
 * Login and Logout
+* Form validations
 * User Authentication 
 * Create and Delete Posts
 * Like and Unlike Posts 
