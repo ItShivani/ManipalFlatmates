@@ -18,6 +18,12 @@ Link to deployed application : [ManipalFlatmates](https://vibrant-kepler-991faf.
 **Technologies used** :- Mongodb, react, semantic-ui, graphql (Apollo) and Nodejs.
 <br/>
 **Deployed using** Heroku and Netlify
+<br/>
+<img src="https://github.com/ItShivani/ManipalFlatmates/blob/master/pic2.PNG" width="1000" height="500">
+
+<br/>
+<br/>
+<img src="https://github.com/ItShivani/ManipalFlatmates/blob/master/pic3.PNG" width="1000" height="500">
 
 
 
