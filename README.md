@@ -15,6 +15,7 @@ Link to deployed application : [ManipalFlatmates](https://vibrant-kepler-991faf.
 * View all posts and view a single post 
 
 **Technologies used** :- Mongodb, react, semantic-ui, graphql (Apollo) and Nodejs.
+<br/>
 **Deployed using** Heroku and Netlify
 
 
