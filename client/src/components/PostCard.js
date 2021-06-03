@@ -5,6 +5,7 @@ import moment from 'moment';
 import {AuthContext} from '../context/auth'
 import LikeButton from './LikeButton';
 import DeleteButton from './DeleteButton'
+import '../App.css'
 function PostCard({
   post: { body, createdAt, id, username, likeCount, commentCount, likes }
 }) {

@@ -18,6 +18,7 @@ function DeleteButton({postId,commentId,callback}){
 				proxy.writeQuery({query: getPosts_QUERY,data});
 				}
 				if(callback) callback();
+				document.location.reload();
 			},
 			variables:{
 				postId,
