@@ -12,7 +12,7 @@ Link to deployed application : [ManipalFlatmates](https://vibrant-kepler-991faf.
 * User Authentication 
 * Create and Delete Posts
 * Like and Unlike Posts 
-* Create comments 
+* Create and delete comments 
 * View all posts and view a single post 
 
 **Technologies used** :- Mongodb, react, semantic-ui, graphql (Apollo) and Nodejs.
